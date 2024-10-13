@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Offer;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -14,15 +15,18 @@ class OfferFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+    protected $model = Offer::class;
+
     public function definition(): array
     {
         return [
-            // 'Title_offer' => $this->faker->sentence,
-            // 'company_name' => $this->faker->company,
-            // 'Location' => $this->faker->city,
-            // 'Employements_type_id' => $this->faker->random_int(),
-            // 'Salary_range' => '35k-50k',
-            // 'user_id' => 1
+            'Title_offer' => fake()->sentence(),
+            'Company_name' => fake()->company(),
+            'Location' => fake()->city(),
+            'Employement_type_id' => fake()->numberBetween(1,3),
+            'Salary_range' => '35k-50k',
+            'user_id' => 1
         ];
     }
 }
