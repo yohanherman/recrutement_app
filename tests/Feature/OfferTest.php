@@ -33,10 +33,13 @@ class OfferTest extends TestCase
             'name' => 'yann',
             'email' => 'yann@gmail.com',
             'password' => Hash::make(1234),
-            'role_id' => 1,
+            'phone_number' => '0765484584',
+            'gender' => 'male',
+            'birthdate' => '2021/10/10',
+            'role' => 'job-seeker',
         ]);
 
-        $offers = Offer::factory()->create();
+        $offers = Offer::factory()->create(['user_id'=> $user->id]);
         $this->assertModelExists($offers);
         $this->assertDatabaseHas('offers', [
             'user_id' => 1
@@ -68,7 +71,7 @@ class OfferTest extends TestCase
         ];
 
         $offer->update($updatedData);
-        
+
         $this->assertDatabaseHas('offers', [
             'Title_offer' => 'Nouveau Titre',
             'Company_name' => 'Nouvelle Entreprise',
