@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\v1;
 
-use App\Models\offers;
+use App\Models\Offer;
 use Illuminate\Http\Request;
 
 class offersController extends Controller
 {
     public function getOffers()
     {
-        $offers = offers::all();
+        $offers = Offer::all();
         // dd($offers);
     }
 }
