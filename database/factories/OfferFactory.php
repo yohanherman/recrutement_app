@@ -26,7 +26,7 @@ class OfferFactory extends Factory
             'Location' => fake()->city(),
             'Employement_type_id' => fake()->numberBetween(1,3),
             'Salary_range' => '35k-50k',
-            'user_id' => 1
+            'user_id' => 14
         ];
     }
 }

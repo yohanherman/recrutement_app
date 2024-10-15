@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('role_id');
+            $table->string('gender')->default('Woman');
+            $table->string('phone_number', 22)->nullable();
+            $table->date('birthdate')->nullable();
         });
     }
 
@@ -22,7 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('role_id');
+            $table->dropColumn('gender');
+            $table->dropColumn('phone_number');
+            $table->dropColumn('birthdate');
         });
     }
 };
