@@ -54,7 +54,7 @@
             </div>
             <div class="flex flex-col m-3">
                 <label for='passwordConfirm'>Password confirmation</label>
-                <input class='h-8 rounded border focus:outline-none focus:border-blue-400' type="text" id='passwordConfirm' name='passwordConfirm'>
+                <input class='h-8 rounded border focus:outline-none focus:border-blue-400' type="text" id='passwordConfirm' name='password_confirmation'>
                 @error('passwordConfirm')
                     <p class="text-red-500">{{$message}}</p>
                 @enderror
@@ -64,12 +64,12 @@
                 <p>choose your gender</p>
                 <div class="flex">
                 <div class="mr-2">
-                    <input type='radio' id='gender' name='gender' value='male'>
-                    <label for="gender">Male</label>
+                    <input type='radio' id='gender' name='gender' value='Man'>
+                    <label for="gender">Man</label>
                 </div>
                 <div class="mr-2">
-                    <input type='radio' id='gender' name='gender' value='Female'>
-                    <label for="gender">Female</label>
+                    <input type='radio' id='gender' name='gender' value='Woman'>
+                    <label for="gender">Woman</label>
                 </div>
                 <div>
                     <input type='radio' id='gender' name='gender' value='non-binary'>

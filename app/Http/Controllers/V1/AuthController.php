@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('welcome'));
+            return redirect()->intended(route('get.offers'));
         }
         return redirect()->route('get.login')->with('errors', 'email/password incorrect');
     }
@@ -41,7 +41,7 @@ class AuthController extends Controller
     {
 
         $messages = [
-            'password.confirmed' => 'Les mots de passe ne correspondent pas.'
+            "password.confirmed" => "passwords don't match"
         ];
 
         $validateData = $request->validate([
@@ -50,8 +50,8 @@ class AuthController extends Controller
             'birthdate' => 'required|date',
             'phone_number' => 'required|numeric',
             'password' => 'required|confirmed',
-            'gender' => 'required',
-            'role_id' => 'required|numeric'
+            'gender' => 'required|string',
+            'role' => 'required|string'
         ], $messages);
 
 
@@ -63,10 +63,10 @@ class AuthController extends Controller
             'phone_number' => $request->phone_number,
             'password' => Hash::make($request->password),
             'gender' => $request->gender,
-            'role_id' => $request->role,
+            'role' => $request->role,
         ]);
         if ($user) {
-            return redirect()->route('login')->with('success', 'account successfully created');
+            return redirect()->route('get.login')->with('success', 'account successfully created');
         }
         // return redirect()->back()
     }

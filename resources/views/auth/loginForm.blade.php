@@ -2,15 +2,26 @@
 
 @section('title','Login')
 
-
 @section('content')
 <body class="bg-stone-300 flex justify-center ">
-    <div class="w-80 mt-80 ">
+    <div class="w-80 mt-40 ">
         <form class='bg-white h-auto rounded' action='{{route('post.login')}}' method='POST'>
             @csrf
             <div class="font-bold capitalize flex justify-center items-center pt-3 text-[20px] ">
                 <h3>Login</h3>
             </div>
+
+                <div class="flex justify-center items-center my-3">
+                    @if(session()->has('success'))
+                        <p class="text-green-500">{{session('success')}}</p>
+                    @endif
+                </div>
+                <div class="flex justify-end items-center my-3">
+                    @if(session()->has('error'))
+                        <p class="text-red-500">{{session('error')}}</p>
+                    @endif
+                </div>
+
             <div class="flex flex-col m-3">
                 <label for='email'>Email</label>
                 <input class='h-8 border rounded focus:outline-none focus:border-blue-400 ' type="email" id='email' name='email'>
