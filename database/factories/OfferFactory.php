@@ -23,6 +23,7 @@ class OfferFactory extends Factory
         return [
             'Title_offer' => fake()->sentence(),
             'Company_name' => fake()->company(),
+            'description' => fake()->sentence(100),
             'Location' => fake()->city(),
             'Employement_type_id' => fake()->numberBetween(1,3),
             'Salary_range' => '35k-50k',

@@ -1,5 +1,22 @@
 document.addEventListener('DOMContentLoaded', function(){
 
+    // // sidebar
+    // window.onscroll = () => {
+    //     const sidebar_content = document.querySelector('.content'); 
+    //     const sidebar = document.querySelector('.sidebar');  
+    //     // let scrollTop = window.scrollY;
+    //     let sidebarTop = sidebar.getBoundingClientRect().top;  
+    
+    //     if (sidebarTop <= 0) {
+    //         sidebar_content.style.position = 'fixed';
+    //         sidebar_content.style.top = '0'; 
+    //     } else {
+    //         sidebar_content.style.position = ''; 
+    //         sidebar_content.style.top = '';  
+    //     }
+    // };
+
+    // int phone number
     const phone_number= document.querySelector('#phone_number');
     const errorMsg = document.querySelector("#error-msg");
     const validMsg = document.querySelector("#valid-msg");
@@ -44,6 +61,8 @@ document.addEventListener('DOMContentLoaded', function(){
     
     // on keyup / change flag: reset
     phone_number.addEventListener('change', reset);
-    // phone_number.addEventListener('keyup', reset);
-        
+
+
 })
+
+

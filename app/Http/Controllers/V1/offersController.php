@@ -10,16 +10,15 @@ class offersController extends Controller
 {
     public function getOffers()
     {
-        $offers = Offer::all()->map(function ($offer) {
+        $offers = Offer::inRandomOrder()->get()->map(function ($offer) {
             $createdAt = Carbon::parse($offer->created_at);
             $offer->published_at = $createdAt->diffForHumans();
             return $offer;
         });
 
-        $context = [
-            'offers' => $offers
-        ];
-        return view('pages.offers', $context);
+        $offerTopOfCollection = $offers->first();
+        // dd($offerTopOfCollection);
+        return view('pages.offers', compact('offers', 'offerTopOfCollection'));
     }
 
     public function postOffers(Request $request) {}

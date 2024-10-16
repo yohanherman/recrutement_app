@@ -31,9 +31,9 @@ class UserFactory extends Factory
             'password' => 1234,
             'remember_token' => Str::random(10),
             'role' => 'job-seeker',
-            'gender' => fake()->randomElement(['male','non-binary','female']),
-            'phone_number' => fake()->phoneNumber() ,
-            'birthdate' => fake()->dateTime()
+            'gender' => fake()->randomElement(['male', 'non-binary', 'female']),
+            'phone_number' => fake()->phoneNumber(),
+            'birthdate' => fake()->dateTime(),
         ];
     }
 

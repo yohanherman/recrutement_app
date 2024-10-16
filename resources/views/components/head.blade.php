@@ -9,5 +9,8 @@
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 {{--  --}}
 
+{{-- stylesheer --}}
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 <script src="javascript/script.js"></script>
 <title>@yield('title')</title>
