@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('responsabilities', function (Blueprint $table) {
             $table->id();
             $table->text('responsabilities_text');
-            $table->foreignId('offers_id')->constrained()->onDelete('cascade');
+            $table->foreignId('offer_id')->constrained()->onDelete('cascade');
         });
     }
 

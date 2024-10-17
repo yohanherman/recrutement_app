@@ -88,7 +88,6 @@
                             <div class="m-4">
                                 <p class="bg-gray-200 inline-block p-1 rounded">{{$offerTopOfCollection->Salary_range}}</p>
                             </div>
-
                         <hr>
                             <div  class="m-4">
                                 <h4 class="capitalize font-bold my-3">location</h4>
@@ -106,34 +105,50 @@
                                     <p>{{$offerTopOfCollection->description}}</p>
                                 @endif
                             </div>
-
                             <div class="m-4">
-                                <h5 class="font-bold my-3">position requirements</h5>
-                                <p>-1 hsdvvhsvhshfsv</p>
-                                <p>_2 vdvjvvdvdvvdvhe</p>
-                                <p> -3 vydvysvdvsvdsvd</p>
-                                <p> -4 bhsdhvsdvshvds</p>
-                                <p>-5 bsjbhksbdhkshdshkd</p>
+                                <h5 class="font-bold my-3">Mission</h5>
+                                @if(!$offerTopOfCollection->responsabilities->isEmpty())
+                                    @foreach($offerTopOfCollection->responsabilities as $responsability)
+                                    <p>- {{$responsability->responsabilities_text}}.</p>
+                                    @endforeach
+                                @else
+                                    <p>No responsabilities provided</p>
+                                @endif
                             </div>
-
                         <hr>
-
-                        <div class='test'>sidecontent4</div>
-                        <div class='test'>sidecontent5</div>
-                        <div class='test'>sidecontent6</div>
-                        <div class='test'>sidecontent7</div>
-                        <div class='test'>sidecontent8</div>
-                        <div class='test'>sidecontent9</div>
-                        <div class='test'>sidecontent10</div>
-                        <div class='test'>sidecontent11</div>
-                        <div class='test'>sidecontent12</div>
-                        <div class='test'>sidecontent13</div>
-                        <div class='test'>sidecontent14</div>
-                        <div class='test'>sidecontent15</div>
-                        <div class='test'>sidecontent16</div>
-                        <div class='test'>sidecontent17</div>
-                        <div class='test'>sidecontent17</div>
-                        <div class='test'>sidecontent17</div>
+                            <div class="m-4">
+                                <h5 class="font-bold my-3">requirements for the position</h5> 
+                                @if(!$offerTopOfCollection->job_requirements->isEmpty())
+                                    @foreach ($offerTopOfCollection->job_requirements as $job_requirement)
+                                    <p>- {{$job_requirement->requirements}}</p>
+                                    @endforeach
+                                @else
+                                    <p>No requirement provided</p>
+                                @endif
+                            </div>
+                        <hr>
+                            <div class="m-4">
+                                <h5 class="font-bold my-3">Advantages</h5> 
+                                {{-- @if(!$offerTopOfCollection->job_requirements->isEmpty())
+                                    @foreach ($offerTopOfCollection->job_requirements as $job_requirement)
+                                    <p>- {{$job_requirement->requirements}}</p>
+                                    @endforeach
+                                @else
+                                    <p>No Advantage provided</p>
+                                @endif --}}
+                                <p>no Advantage provided</p>
+                                <p>no Advantage provided</p>
+                                <p>no Advantage provided</p>
+                                <p>no Advantage provided</p>
+                                <p>no Advantage provided</p>
+                        
+                            </div>
+                        <hr>
+                            <div class="flex justify-start items-center">
+                                <div class="m-5 ">
+                                    <a class='bg-gray-200 p-2 rounded' href=""><i class="fa-solid fa-flag"></i> Report this offera</a>
+                                </div>
+                            </div>
                     </div>
                 </div>
         </div>

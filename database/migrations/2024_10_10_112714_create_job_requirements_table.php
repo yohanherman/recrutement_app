@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('job_requirements', function (Blueprint $table) {
             $table->id();
             $table->text('requirements');
-            $table->foreignId('offers_id')->constrained()->onDelete('cascade');
+            $table->foreignId('offer_id')->constrained()->onDelete('cascade');
         });
     }
 
