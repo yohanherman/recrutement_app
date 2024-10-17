@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', function(){
     //     }
     // };
 
+    const  burger_remove =document.querySelector('.burger_remove')
+    const  sidebar_menu =document.querySelector('.sidebar_menu')
+    const  burger =document.querySelector('.burger')
+
+    burger.addEventListener('click', function(e){
+        sidebar_menu.classList.toggle('visible')
+    })
+
+    burger_remove.addEventListener('click', function(e){
+        sidebar_menu.classList.toggle('visible')
+    })
+
     // int phone number
     const phone_number= document.querySelector('#phone_number');
     const errorMsg = document.querySelector("#error-msg");

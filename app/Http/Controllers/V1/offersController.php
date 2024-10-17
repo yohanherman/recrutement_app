@@ -11,7 +11,6 @@ class offersController extends Controller
 {
     public function getOffers()
     {
-
         $offers = Offer::with('responsabilities','job_requirements')->inRandomOrder()->get()->map(function ($offer) {
             $createdAt = Carbon::parse($offer->created_at);
             $offer->published_at = $createdAt->diffForHumans();

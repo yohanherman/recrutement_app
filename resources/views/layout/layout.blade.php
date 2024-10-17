@@ -4,6 +4,7 @@
         @include('components.head')
     </head>
 <body>
+
     <div id='main'>
         @yield('content')
     </div>

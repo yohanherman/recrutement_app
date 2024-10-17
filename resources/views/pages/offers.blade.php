@@ -3,6 +3,10 @@
 @section('title','offers')
 
 @section('content')
+
+@include('components.header')
+
+
     <div class="flex justify-center">
         <div class="">
             @foreach ($offers as $item)
