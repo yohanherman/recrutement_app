@@ -1,23 +1,31 @@
-.test{
-    width:auto;
-    height:100px;
-    margin:1px
-}
-
 
 .sidebar {
     position: sticky; 
     top: 0; 
 }
 
-
 .sidebar_menu{
     margin-right: -100%;
     transition: all 0.2s ease-out;
+    /* z-index: 100; */
 }
 
-.visible{
+.visible_menu{
     margin-right: 0;
     transition: all 0.2s ease-out;
 
 }
+
+
+.overlay{
+  background-color: rgba(0, 0, 0, 0.4);  
+  display: none;
+}
+
+.visible_overlay{
+    display: block;
+}
+
+body.no-scroll {
+    overflow: hidden;
+  }

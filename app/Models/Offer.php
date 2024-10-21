@@ -16,7 +16,8 @@ class Offer extends Model
         'Location',
         'Employement_type_id',
         'Salary_range',
-        'description'
+        'description',
+        'user_id'
     ];
 
     public function responsabilities(): HasMany

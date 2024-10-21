@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('responsabilities_text');
             $table->foreignId('offer_id')->constrained()->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

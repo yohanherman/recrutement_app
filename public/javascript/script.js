@@ -1,31 +1,41 @@
 document.addEventListener('DOMContentLoaded', function(){
 
-    // // sidebar
-    // window.onscroll = () => {
-    //     const sidebar_content = document.querySelector('.content'); 
-    //     const sidebar = document.querySelector('.sidebar');  
-    //     // let scrollTop = window.scrollY;
-    //     let sidebarTop = sidebar.getBoundingClientRect().top;  
-    
-    //     if (sidebarTop <= 0) {
-    //         sidebar_content.style.position = 'fixed';
-    //         sidebar_content.style.top = '0'; 
-    //     } else {
-    //         sidebar_content.style.position = ''; 
-    //         sidebar_content.style.top = '';  
-    //     }
-    // };
+    const  burger_remove =document.querySelector('.burger_remove');
+    const  sidebar_menu =document.querySelector('.sidebar_menu');
+    const  burger =document.querySelector('.burger');
+    const  overlay =document.querySelector('.overlay');
+    const body = document.querySelector('body');
 
-    const  burger_remove =document.querySelector('.burger_remove')
-    const  sidebar_menu =document.querySelector('.sidebar_menu')
-    const  burger =document.querySelector('.burger')
+    function openMenu(){
+        sidebar_menu.classList.add('visible_menu');
+        overlay.classList.add('visible_overlay');
+        body.classList.add('no-scroll');
+
+    }
+
+    function closeMenu() {
+        sidebar_menu.classList.remove('visible_menu');
+        overlay.classList.remove('visible_overlay');
+        body.classList.remove('no-scroll');
+    }
 
     burger.addEventListener('click', function(e){
-        sidebar_menu.classList.toggle('visible')
+        openMenu();
     })
 
     burger_remove.addEventListener('click', function(e){
-        sidebar_menu.classList.toggle('visible')
+        closeMenu();
+    })
+
+    overlay.addEventListener('click',function(e){
+        closeMenu();
+    })
+
+
+    window.addEventListener('resize', function() {
+        if (window.innerWidth >= 768) {
+            closeMenu(); 
+        }
     })
 
     // int phone number

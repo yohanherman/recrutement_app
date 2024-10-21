@@ -27,7 +27,7 @@ class AuthController extends Controller
         }
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended(route('get.offers'));
+            return redirect()->intended(route('home.offers'));
         }
         return redirect()->route('get.login')->with('errors', 'email/password incorrect');
     }
@@ -68,6 +68,12 @@ class AuthController extends Controller
         if ($user) {
             return redirect()->route('get.login')->with('success', 'account successfully created');
         }
-        // return redirect()->back()
+    }
+
+
+    public function logout()
+    {
+        auth::logout();
+        return redirect()->route('login')->with('success', 'Successfully logged out');
     }
 }

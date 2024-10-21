@@ -10,7 +10,10 @@ class responsabilities extends Model
 {
     use HasFactory;
 
-
+    protected $fillable = [
+        'responsabilities_text',
+        'offer_id'
+    ];
 
     public function offers(): BelongsTo
     {

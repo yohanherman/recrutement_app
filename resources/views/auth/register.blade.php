@@ -108,7 +108,7 @@
         </form>
 
         <div class='ml-4'>
-            <a href="{{route('get.login')}}"> Already  have an account ?</a>
+            <a href="{{route('login')}}"> Already  have an account ?</a>
         </div>
     </div>
 </body>
