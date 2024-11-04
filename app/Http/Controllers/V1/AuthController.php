@@ -29,7 +29,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended(route('home.offers'));
         }
-        return redirect()->route('get.login')->with('errors', 'email/password incorrect');
+        return redirect()->route('login')->with('errors', 'email/password incorrect');
     }
 
     public function getRegister()
@@ -66,7 +66,7 @@ class AuthController extends Controller
             'role' => $request->role,
         ]);
         if ($user) {
-            return redirect()->route('get.login')->with('success', 'account successfully created');
+            return redirect()->route('login')->with('success', 'account successfully created');
         }
     }
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\AjaxController;
 use App\Http\Controllers\v1\AuthController;
 use App\Http\Controllers\v1\offersController;
 use Illuminate\Support\Facades\Route;
@@ -16,4 +17,8 @@ Route::get('/add-offer', [offersController::class, 'offerForm'])->name('get.offe
 Route::post('/add-offer', [offersController::class, 'postOffers'])->name('post.offers');
 Route::get('/add-more-offer-details/{id}', [offersController::class, 'moreOfferInfoForm'])->name('addMoreOfferDetailsForm');
 Route::post('/add-more-offer-details', [offersController::class, 'postMoreOfferDetails'])->name('post.addMoreOfferDetails');
+
+
+// AJAX route
+Route::get('/offer-by-id/{id}', [AjaxController::class, 'modifysidebarContentByOfferId']);
 

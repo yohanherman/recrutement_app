@@ -18,40 +18,40 @@
     <h4>publishing offer form</h4>
 </div>
 
-<div>
-    <form action='{{route('post.offers')}}' method='POST'>
+<div class="border m-5 rounded-md">
+    <form class="" action='{{route('post.offers')}}' method='POST'>
         @csrf
         <div class='m-5'>
             <label class='block my-2' for='Title_offer'>Offer title</label>
-            <input class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded" type='text' id='Title_offer'name='Title_offer'>
+            <input class="w-full h-10 border border-gray-400 focus:outline-none focus:border-blue-400 rounded" type='text' id='Title_offer'name='Title_offer'>
             @error('Title_offer')
                 <p class="text-red-500">{{ $message }}</p>
             @enderror
         </div>
         <div class="m-5">
             <label class='block my-2' for='Company_name'>Company name</label>
-            <input class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded" type='text' id='Company_name'name='Company_name'>
+            <input class="w-full h-10 border  border-gray-400 focus:outline-none focus:border-blue-400 rounded" type='text' id='Company_name'name='Company_name'>
             @error('Company_name')
                 <p class="text-red-500">{{ $message }}</p>
              @enderror
         </div>
         <div class="m-5">
             <label class='block my-2' for='Location'>Location</label>
-            <input class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded" type='text' id='Location'name='Location'>
+            <input class="w-full h-10  border  border-gray-400 focus:outline-none focus:border-blue-400 rounded" type='text' id='Location'name='Location'>
             @error('Location')
                  <p class="text-red-500">{{ $message }}</p>
             @enderror
         </div>
         <div class="m-5">
             <label class='block my-2' for='Employement_type_id'>Contract type</label>
-            <input class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded" type='number' id='Employement_type_id'name='Employement_type_id'>
+            <input class="w-full h-10  border  border-gray-400 focus:outline-none focus:border-blue-400 rounded" type='number' id='Employement_type_id'name='Employement_type_id'>
             @error('Employement_type_id')
                  <p class="text-red-500">{{ $message }}</p>
             @enderror
         </div>
         <div class="m-5">
             <label class='block my-2' for='Salary_range'>Salary range</label>
-            <input class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded" type='text' id='Salary_range'name='Salary_range'>
+            <input class="w-full h-10 border  border-gray-400  focus:outline-none focus:border-blue-400 rounded" type='text' id='Salary_range'name='Salary_range'>
             @error('Salary_range')
                  <p class="text-red-500">{{ $message }}</p>
             @enderror
@@ -63,7 +63,7 @@
         </div>
         <div class="m-5">
             <label class='block my-2' for='description'>Description</label>
-            <textarea class="w-full md:w-[70%] border focus:outline-none focus:border-blue-400 rounded"  id='description'name='description' rows='5' cols='33'></textarea>
+            <textarea class="w-full border  border-gray-400 focus:outline-none focus:border-blue-400 rounded"  id='description'name='description' rows='5' cols='33'></textarea>
             @error('description')
                  <p class="text-red-500">{{ $message }}</p>
             @enderror

@@ -25,6 +25,15 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+
+# Installer curl et les dépendances nécessaires
+RUN apt-get update && apt-get install -y curl gnupg
+
+
+# Installer Node.js 20.x
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs=20.18.0-1nodesource1
+
     
 # la configuration d'OpCache
 RUN echo "opcache.enable=1\n\

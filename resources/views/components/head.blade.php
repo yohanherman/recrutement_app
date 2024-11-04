@@ -12,5 +12,5 @@
 {{-- stylesheer --}}
 <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
-<script src="javascript/script.js"></script>
+<script src="{{ asset('javascript/script.js')}}"></script>
 <title>@yield('title')</title>

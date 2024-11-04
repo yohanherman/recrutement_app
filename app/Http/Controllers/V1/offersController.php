@@ -23,7 +23,6 @@ class offersController extends Controller
         // dd(DB::getQueryLog());
 
         $offerTopOfCollection = $offers->first();
-        // dd($offerTopOfCollection);
         return view('pages.offers', compact('offers', 'offerTopOfCollection'));
     }
 
@@ -59,6 +58,7 @@ class offersController extends Controller
         $offer = Offer::findOrFail($id);
         return view('pages.offerMoreInfoForm', compact('offer'));
     }
+
 
     public function postMoreOfferDetails(Request $request)
     {

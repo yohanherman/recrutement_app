@@ -3,9 +3,12 @@
 @if(Auth::check() && Auth::user()->role == 'recrutor')
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
-    <nav class="navbar h-16 w-full flex justify-between items-center ">
-        <div class="mx-3">LOGO</div>
-        <ul class="flex space-x-5 mx-5 text-[20px] ">
+    <nav class="navbar h-20 w-full flex justify-between items-center bg-black">
+        <div class="flex justify-center items-center text-white">
+            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
+            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+        </div>
+        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
             <li>message</li>
             <li>notifications</li>
             <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
@@ -40,14 +43,18 @@
     </div>
 </div>
 
+{{-- connected as job- seeker --}}
 @elseif(Auth::check() && Auth::user()->role == 'job-seeker')
 
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
 
-    <nav class="navbar h-16 w-full flex justify-between items-center ">
-        <div class="mx-3">LOGO</div>
-        <ul class="flex space-x-5 mx-5 text-[20px] ">
+    <nav class="navbar h-16 w-full flex justify-between items-center bg-black ">
+        <div class="flex justify-center items-center  text-white">
+            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
+            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+        </div>
+        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
             <li>message</li>
             <li>notifications</li>
             <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
@@ -81,9 +88,12 @@
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
 
-    <nav class="navbar h-16 w-full flex justify-between items-center ">
-        <div class="mx-3">LOGO</div>
-        <ul class="flex space-x-5 mx-5 text-[20px] ">
+    <nav class="navbar h-16 w-full flex justify-between items-center bg-black ">
+        <div class="flex justify-center items-center  text-white">
+            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
+            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+        </div>
+        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
             <li>message</li>
             <li>notifications</li>
             <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>

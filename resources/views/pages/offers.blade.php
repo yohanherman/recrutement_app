@@ -6,11 +6,14 @@
 
 @include('components.header')
 
+@include('components.searchbar')
+
 
     <div class="flex justify-center">
+        @if(!$offers->isEmpty())
         <div class="">
             @foreach ($offers as $item)
-                <div class="border-2 rounded p-2 m-3">
+                <div class="border-2 rounded p-2 m-3 offers" data-offer-id='{{$item->id}}'>
                     <h4 class="font-bold text-[20px] my-2">{{$item->Title_offer}} - (F/H) </h3>
                     <p class="uppercase">{{$item->Company_name}}</p>
                     <p>{{$item->Location}}</p>
@@ -37,32 +40,29 @@
 
         
 {{-- sidebar offer page --}}
+
         <div class="sidebar w-[50rem] h-screen hidden m-3 md:block ">
 
                 <div class='content border-1'>
                     <div class="border shadow w-100 h-auto">
                         <div class="m-4">
-                            @if($offerTopOfCollection)
-                                <h4 class="font-bold text-[20px] py-1">{{$offerTopOfCollection->Title_offer}} - (F/H)</h4>
-                                <p class="underline py-1">{{$offerTopOfCollection->Company_name}}</p>
-                                <p class="py-1">{{$offerTopOfCollection->Location}}</p>
+                                <h4 class="font-bold text-[20px] py-1 title_offer">{{$offerTopOfCollection->Title_offer}} - (F/H)</h4>
+                                <p class="underline py-1 company_name">{{$offerTopOfCollection->Company_name}}</p>
+                                <p class="py-1 location">{{$offerTopOfCollection->Location}}</p>
                                 
                                 
                                 @if($offerTopOfCollection->Employement_type_id == 1)
-                                    <p class='bg-gray-200 inline-block p-1 rounded'>CDI</p>
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>CDI</p>
                                 @elseif($offerTopOfCollection->Employement_type_id == 2)
-                                    <p class='bg-gray-200 inline-block p-1 rounded '>CDD</p>
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>CDD</p>
                                 @elseif($offerTopOfCollection->Employement_type_id == 3)
-                                    <p class='bg-gray-200 inline-block p-1 rounded'>Alternance</p>
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>Alternance</p>
                                 @else
                                 @endif
-
-                            @endif
-                            
                         </div>
 
                         <div class='m-4'>
-                            <a class="bg-blue-400 rounded p-2 text-white" href="">Apply now</a>
+                            <a class="bg-blue-600 rounded p-2 text-white" href="">Apply now</a>
                        </div>
                     </div>
 
@@ -78,15 +78,13 @@
                             </div>
 
                             <div class="m-4">
-                                @if($offerTopOfCollection)
-                                    @if($offerTopOfCollection->Employement_type_id == 1)
-                                    <p class='bg-gray-200 inline-block p-1 rounded'>CDI</p>
-                                    @elseif($offerTopOfCollection->Employement_type_id == 2)
-                                        <p class='bg-gray-200 inline-block p-1 rounded'>CDD</p>
-                                    @elseif($offerTopOfCollection->Employement_type_id == 3)
-                                        <p class='bg-gray-200 inline-block p-1 rounded'>Alternance</p>
-                                    @else
-                                    @endif
+                                @if($offerTopOfCollection->Employement_type_id == 1)
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>CDI</p>
+                                @elseif($offerTopOfCollection->Employement_type_id == 2)
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>CDD</p>
+                                @elseif($offerTopOfCollection->Employement_type_id == 3)
+                                    <p class='bg-gray-200 inline-block p-1 rounded contract'>Alternance</p>
+                                @else
                                 @endif
                             </div>
 
@@ -95,55 +93,46 @@
                                 <h4 class="font-bold">Salary</h4>
                             </div>
                             <div class="m-4">
-                                @if($offerTopOfCollection)
-                                  <p class="bg-gray-200 inline-block p-1 rounded">{{$offerTopOfCollection->Salary_range}}</p>
-                                @endif
+                                  <p class="bg-gray-200 inline-block p-1 rounded salary">{{$offerTopOfCollection->Salary_range}}</p>
                             </div>
                         <hr>
                             <div  class="m-4">
                                 <h4 class="capitalize font-bold my-3">location</h4>
                                 <div class="flex">
                                     <div><i class="fa-solid fa-location-crosshairs mr-2"></i></div>
-                                    @if($offerTopOfCollection)
-                                        <p>{{$offerTopOfCollection->Location}}</p>
-                                    @endif
+                                    <p class="location">{{$offerTopOfCollection->Location}}</p>
                                 </div>
                             </div>
                         <hr>
                             <div class="m-4">
                                 <h4 class="font-bold my-3">Position description</h4>
-                                @if($offerTopOfCollection)
-                                    @if(!$offerTopOfCollection->description)
-                                        <p>No description provided for the position</p>
-                                    @else
-                                        <p>{{$offerTopOfCollection->description}}</p>
-                                    @endif
+                                @if(!$offerTopOfCollection->description)
+                                    <p>No description provided for the position</p>
+                                @else
+                                    <p class="description">{{$offerTopOfCollection->description}}</p>
                                 @endif
                             </div>
                             <div class="m-4">
                                 <h5 class="font-bold my-3">Mission</h5>
-                                @if($offerTopOfCollection)
-                                    @if(!$offerTopOfCollection->responsabilities->isEmpty())
-                                        @foreach($offerTopOfCollection->responsabilities as $responsability)
-                                        <p>- {{$responsability->responsabilities_text}}.</p>
-                                        @endforeach
-                                    @else
+                        
+                                @if(!$offerTopOfCollection->responsabilities->isEmpty())
+                                    @foreach($offerTopOfCollection->responsabilities as $responsability)
+                                    <p>- {{$responsability->responsabilities_text}}.</p>
+                                     @endforeach
+                                @else
                                         <p>No responsabilities provided</p>
-                                    @endif
                                 @endif
                             </div>
                         <hr>
                             <div class="m-4">
                                 <h5 class="font-bold my-3">requirements for the position</h5> 
-                                @if($offerTopOfCollection)
                                     @if(!$offerTopOfCollection->job_requirements->isEmpty())
-                                        @foreach ($offerTopOfCollection->job_requirements as $job_requirement)
-                                        <p>- {{$job_requirement->requirements}}</p>
-                                        @endforeach
+                                      @foreach ($offerTopOfCollection->job_requirements as $job_requirement)
+                                      <p>- {{$job_requirement->requirements}}</p>
+                                      @endforeach
                                     @else
-                                        <p>No requirement provided</p>
+                                      <p>No requirement provided</p>
                                     @endif
-                                @endif
                             </div>
                         <hr>
                             <div class="m-4">
@@ -171,6 +160,11 @@
                     </div>
                 </div>
         </div>
+        @else
+            <div class="my-5">
+                <p>no offer published on the site</p>
+            </div>
+        @endif
   </div>
 
 @endsection
