@@ -4,19 +4,29 @@ document.addEventListener('DOMContentLoaded', function(){
     const  sidebar_menu =document.querySelector('.sidebar_menu');
     const  burger =document.querySelector('.burger');
     const  overlay =document.querySelector('.overlay');
+    const  searchbar =document.querySelector('.searchbar');
+    // console.log(searchbar)
     const body = document.querySelector('body');
 
 
+
+    // navbar responsive
     function openMenu(){
         sidebar_menu.classList.add('visible_menu');
         overlay.classList.add('visible_overlay');
         body.classList.add('no-scroll');
+        searchbar.style.opacity='0.5';
+        searchbar.style.pointerEvents = 'none';
+
     }
 
     function closeMenu() {
         sidebar_menu.classList.remove('visible_menu');
         overlay.classList.remove('visible_overlay');
         body.classList.remove('no-scroll');
+        searchbar.classList.remove('searchbar');
+        searchbar.style.opacity='1';
+        searchbar.style.pointerEvents = 'auto';
     }
 
     burger.addEventListener('click', function(e){
@@ -46,8 +56,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const contract_type= document.querySelectorAll(".contract");
     const salary= document.querySelector(".salary");
     const description= document.querySelector(".description");
-    // console.log(contract_type)
-
+    
     offers.forEach(function(offer){
         offer.addEventListener("click", function(){
 
@@ -78,9 +87,13 @@ document.addEventListener('DOMContentLoaded', function(){
                     Title_offer.innerHTML = data.offer.Title_offer
                     company_name.innerHTML = data.offer.Company_name
                     contract_type.innerHTML = data.offer.Contract_type
-                    salary.innerHTML = data.offer.Salary_range
-                    description.innerHTML = data.offer.description
+                    salary.innerHTML = data.offer.Salary_range;
+                    description.innerHTML = data.offer.description;
 
+                    // changement dynamqiue de l'id de l'offre en prenant l'id que je passe a travers l'ajax
+                    const offer_ID= document.querySelector(".id_offer");
+                    offer_ID.href = `http://127.0.0.1:8000/apply/${offer_id}`
+                   
 
                     location.forEach(function(element){
                         element.innerHTML = data.offer.Location

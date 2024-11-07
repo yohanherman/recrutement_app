@@ -3,13 +3,13 @@
 @if(Auth::check() && Auth::user()->role == 'recrutor')
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
-    <nav class="navbar h-20 w-full flex justify-between items-center bg-black">
+    <nav class="navbar h-20 w-full flex justify-between items-center  bg-blue-950">
         <div class="flex justify-center items-center text-white">
             <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
-            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+            <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
         </div>
         <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
-            <li>message</li>
+            <li><a href="#">Message</a></li>
             <li>notifications</li>
             <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
@@ -49,15 +49,15 @@
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
 
-    <nav class="navbar h-16 w-full flex justify-between items-center bg-black ">
+    <nav class="navbar h-16 w-full flex justify-between items-center  bg-blue-950 ">
         <div class="flex justify-center items-center  text-white">
             <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
-            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+            <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
         </div>
-        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
+        <ul class="flex space-x-5 mx-5 text-[15px] text-white ">
             <li>message</li>
             <li>notifications</li>
-            <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
+            <li class="hidden md:block"><a href="{{route('get.profile')}}"><i class="fa-solid fa-user"></i></a></li>
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
             {{-- <div class="hidden md:block"> | publish an offer</div> --}}
         </ul>
@@ -88,15 +88,15 @@
 <div>
     <div class="overlay fixed w-full h-full right-0 top-0 z-5 md:hidden"></div>
 
-    <nav class="navbar h-16 w-full flex justify-between items-center bg-black ">
+    <nav class="navbar h-16 w-full flex justify-between items-center bg-blue-950 ">
         <div class="flex justify-center items-center  text-white">
             <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
-            <a class='hidden md:flex text-[20px] ms-5' href="{{route('home.offers')}}">Home</a>
+            <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
         </div>
-        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
+        <ul class="flex space-x-5 mx-5 text-[15px] text-white ">
             <li>message</li>
             <li>notifications</li>
-            <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
+            <li class="hidden md:block"><a href="{{route('get.profile')}}"><i class="fa-solid fa-user"></a></i></li>
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
             {{-- <div class="hidden md:block"> | publish an offer</div> --}}
         </ul>

@@ -29,3 +29,8 @@
 body.no-scroll {
     overflow: hidden;
   }
+
+.searchbar{
+    /* opacity: 0.5; */
+    
+}

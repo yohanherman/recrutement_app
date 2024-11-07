@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('job_applications', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('offers_id')->constrained()->onDelete('cascade');
-            $table->text('full_name');
-            $table->string('email');
-            $table->string('phone_number');
-            $table->string('cv_url');
-            $table->string('coverletter_url');
-            $table->foreignId('status_id');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('offer_id')->constrained('offers')->onDelete('cascade');
+            $table->string('name');
+            $table->string('phone');
+            $table->string('location')->nullable();
+            $table->string('profile_title');
+            $table->string('cv')->nullable();
+            $table->string('cover_letter')->nullable();
+            $table->text('message')->nullable();
             $table->timestamps();
         });
     }
