@@ -27,8 +27,9 @@ class ApplyController extends Controller
     {
 
         $validated = $request->validate([
-            'user_id' => 'required',
-            'offer_id' => 'required',
+            'user_id' => 'required|integer',
+            'offer_id' => 'required|integer',
+            'recrutor_id' => 'required|integer',
             'name' => 'required|string',
             'phone' => 'required',
             'location' => 'nullable',
@@ -63,6 +64,7 @@ class ApplyController extends Controller
         $application = jobApplications::create([
             'user_id' => $request->user_id,
             'offer_id' => $request->offer_id,
+            'recrutor_id' => $request->recrutor_id,
             'name' => $request->name,
             'phone' => $request->phone,
             'location' => $request->location,

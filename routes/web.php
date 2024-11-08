@@ -6,6 +6,7 @@ use App\Http\Controllers\v1\AuthController;
 use App\Http\Controllers\v1\LanguageController;
 use App\Http\Controllers\v1\offersController;
 use App\Http\Controllers\v1\ProfileController;
+use App\Http\Controllers\v1\recrutorApplicationController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -49,4 +50,10 @@ Route::put('/edit-profile', [ProfileController::class, 'editProfileFormPost'])->
 
 Route::get('/apply/{id}', [ApplyController::class, 'appytoOfferForm'])->name('apply.now');
 Route::post('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
+
+
+// recrutor routes
+Route::get('/application', [recrutorApplicationController::class, 'displayApplication'])->name('recrutor.application');
+Route::get('/application/{id}', [recrutorApplicationController::class, 'displayApplicationDetails'])->name('application.details');
+
 

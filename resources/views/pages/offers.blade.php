@@ -70,9 +70,16 @@
                                 @endif
                         </div>
 
-                        <div class='m-4'>
-                            <a class=" bg-blue-950 rounded p-2 text-white id_offer" href="{{route('apply.now', $offerTopOfCollection->id)}}">{{__('pageOffer.Apply now')}}</a>
-                       </div>
+                        @if(Auth::user()->role == 'job-seeker')
+                            <div class='m-4'>
+                                <a class=" bg-blue-950 rounded p-2 text-white id_offer" href="{{route('apply.now', $offerTopOfCollection->id)}}">{{__('pageOffer.Apply now')}}</a>
+                            </div>
+                        @elseif(Auth::user()->role == 'recrutor')
+                            <div class='m-4'>
+                                <a class=" bg-blue-950 rounded p-2 text-white id_offer apply-btn" href="#">{{__('pageOffer.Apply now')}}</a>
+                            </div>
+                       @endif
+
                     </div>
 
                     <div class="overflow-y-auto h-[calc(100vh-200px)] w-full border ">

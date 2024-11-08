@@ -48,7 +48,7 @@
             </div>
             <div>
                 <label class="block" for="location">location</label>
-                <input  class='my-2 w-full p-1 border focus:outline-none focus:border-blue-600' type="text" name="location" value="Lyon">
+                <input  class='my-2 w-full p-1 border focus:outline-none focus:border-blue-600' type="text" name="location" value="" placeholder="Lyon">
             </div>
         </div>
 
@@ -124,6 +124,11 @@
         <div>
             <input type="hidden" name='offer_id' value='{{$offer->id}}'>
         </div>
+
+        <div>
+            <input type='text' name='recrutor_id' value='{{$offer->user_id}}'>
+        </div>
+
 
     </form>
 </div>

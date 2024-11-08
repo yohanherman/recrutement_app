@@ -34,3 +34,19 @@ body.no-scroll {
     /* opacity: 0.5; */
     
 }
+
+
+/* table candidature */
+td,th{
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+}
+
+
+/* modal window */
+
+.modal-visible{
+    display: block;
+    /* transition: all 5s ease-out; */
+}

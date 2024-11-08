@@ -8,9 +8,10 @@
             <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
             <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
         </div>
-        <ul class="flex space-x-5 mx-5 text-[20px] text-white ">
-            <li><a href="#">Message</a></li>
-            <li>notifications</li>
+        <ul class="flex space-x-7 mx-5 text-[20px] text-white ">
+            <li class="hidden md:block"><a href='{{route('recrutor.application')}}'><i class="fa-solid fa-book-bookmark"></i></a></li>
+            <li><a href="#"><i class="fa-solid fa-message"></i></a></li>
+            <li><i class="fa-solid fa-bell"></i></li>
             <li class="hidden md:block"><i class="fa-solid fa-user"></i></li>
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
             <div class="hidden md:block"> | <a href="{{route('get.offerForm')}}">publish an offer</a></div>
@@ -55,8 +56,8 @@
             <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
         </div>
         <ul class="flex space-x-5 mx-5 text-[15px] text-white ">
-            <li>message</li>
-            <li>notifications</li>
+            <li><i class="fa-solid fa-message"></i></li>
+            <li><i class="fa-solid fa-bell"></i></li>
             <li class="hidden md:block"><a href="{{route('get.profile')}}"><i class="fa-solid fa-user"></i></a></li>
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
             {{-- <div class="hidden md:block"> | publish an offer</div> --}}

@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const  burger =document.querySelector('.burger');
     const  overlay =document.querySelector('.overlay');
     const  searchbar =document.querySelector('.searchbar');
-    // console.log(searchbar)
     const body = document.querySelector('body');
+    // console.log(body)
 
 
 
@@ -47,6 +47,16 @@ document.addEventListener('DOMContentLoaded', function(){
             closeMenu(); 
         }
     })
+
+
+    // btn to prevent recruto to apply to an offer
+    const btn = document.querySelector('.apply-btn');
+    btn.addEventListener('click',function(){
+        alert('you can\'t apply as you are connected as a recrutor')
+    })
+
+   
+
 
     // AJAX pour changer le contenu de la sidebar des offres
     const offers = document.querySelectorAll(".offers");
@@ -106,13 +116,41 @@ document.addEventListener('DOMContentLoaded', function(){
 
             })
             .catch(error=>{
-                console.log('Error in request for offerID:' + offer_id + ':' , error )
+                console.log('Error in request for offerID:' + offer_id + ':' , error );
             })
-
-        
 
         })
     })
+    
+
+    // modal window
+    const modalWindow = document.querySelector('.modalWindow');
+    const btnModal= document.querySelector('.btn-modal');
+    
+    btnModal.addEventListener('click', function(){
+        openModel();
+    })
+
+    modalWindow.addEventListener('mouseleave', function(){
+        closeModal();
+    })
+
+
+    function openModel(){
+        modalWindow.classList.add('modal-visible');
+        body.classList.add('no-scroll');
+    }
+
+    function closeModal(){
+        modalWindow.classList.remove('modal-visible');
+        body.classList.remove('no-scroll');
+    }
+
+  
+
+
+    
+
    
 
     // int phone number
