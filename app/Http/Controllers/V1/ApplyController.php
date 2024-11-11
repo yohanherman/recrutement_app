@@ -13,14 +13,12 @@ class ApplyController extends Controller
 {
     public function appytoOfferForm(int $id)
     {
-        if (Auth::check()) {
+        // if (Auth::check()) {
             $user = Auth::user();
             $offer = Offer::findOrFail($id);
 
             return view('pages.applicationForm', compact('user', 'offer'));
-        } else {
-            dd('tu dois etre connecté');
-        }
+        // }
     }
 
     public function applyToOffer(Request $request)
@@ -47,18 +45,16 @@ class ApplyController extends Controller
             $pdf = $request->file('cv');
             $pdf_name = $pdf->getClientOriginalName();
             $path_cv = $request->file('cv')->storeAs($destination_path, $pdf_name);
-
         }
 
 
         // pour lettre
-        if($request->hasFile('cover_letter') && $request->file('cover_letter')->isValid()){
+        if ($request->hasFile('cover_letter') && $request->file('cover_letter')->isValid()) {
 
             $destination_path = 'public/pdfs';
             $pdf = $request->file('cover_letter');
             $pdf_name = $pdf->getClientOriginalName();
             $path_cover_letter = $request->file('cover_letter')->storeAs($destination_path, $pdf_name);
-
         }
 
         $application = jobApplications::create([
@@ -71,9 +67,9 @@ class ApplyController extends Controller
             'profile_title' => $request->profile_title,
             'message' => $request->message,
 
-            'cv' => $path_cv ? str_replace('public/', '', $path_cv) : null,  
-            'cover_letter' => $path_cover_letter ? str_replace('public/', '', $path_cover_letter) : null, 
-           
+            'cv' => $path_cv ? str_replace('public/', '', $path_cv) : null,
+            'cover_letter' => $path_cover_letter ? str_replace('public/', '', $path_cover_letter) : null,
+
 
         ]);
 

@@ -70,15 +70,39 @@
                                 @endif
                         </div>
 
-                        @if(Auth::user()->role == 'job-seeker')
+                        @if(Auth::check())
+                            @if(Auth::user()->role == 'job-seeker')
+                                <div class='m-4'>
+                                    <a class="bg-blue-950 rounded p-2 text-white hover:bg-blue-800 id_offer " href="{{ route('apply.now', $offerTopOfCollection->id) }}">
+                                        {{ __('pageOffer.Apply now') }}
+                                    </a>
+                                </div>
+                            @else
+                                <div class='m-4'>
+                                    <a class="bg-blue-950 rounded p-2 text-white id_offer hover:bg-blue-800 apply-btn " href="#">
+                                        {{ __('pageOffer.Apply now') }}
+                                    </a>
+                                </div>
+                            @endif
+                        @else
                             <div class='m-4'>
-                                <a class=" bg-blue-950 rounded p-2 text-white id_offer" href="{{route('apply.now', $offerTopOfCollection->id)}}">{{__('pageOffer.Apply now')}}</a>
+                                <a class="bg-blue-950 rounded p-2 text-white hover:bg-blue-800 id_offer apply-btn2" href="#">
+                                    {{ __('pageOffer.Apply now') }}
+                                </a>
                             </div>
-                        @elseif(Auth::user()->role == 'recrutor')
-                            <div class='m-4'>
-                                <a class=" bg-blue-950 rounded p-2 text-white id_offer apply-btn" href="#">{{__('pageOffer.Apply now')}}</a>
+                        @endif
+
+                            {{-- modal --}}
+                            <div class=" cardmodal fixed top-20  w-96 bg-slate-400 h-28 shadow rounded text-white hidden  ">
+                                {{-- <div class="text-end m-2 removemodal"><i class="fa-solid fa-xmark"></i></div> --}}
+                                <div class="text-center mt-3">
+                                    <p class="">You need to be connected as a job-seeker to apply</p>
+                                    <a href="{{route('login')}}">Connection <i class="fa-solid fa-arrow-right"></i></a>
+                                    <div class="text-center m-2 removemodal text-[20px]"><i class="fa-solid fa-xmark"></i></div>
+                                </div>
                             </div>
-                       @endif
+                            {{--  --}}
+
 
                     </div>
 

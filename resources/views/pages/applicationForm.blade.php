@@ -126,7 +126,7 @@
         </div>
 
         <div>
-            <input type='text' name='recrutor_id' value='{{$offer->user_id}}'>
+            <input type='hidden' name='recrutor_id' value='{{$offer->user_id}}'>
         </div>
 
 

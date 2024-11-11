@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', function(){
         body.classList.add('no-scroll');
         searchbar.style.opacity='0.5';
         searchbar.style.pointerEvents = 'none';
-
     }
 
     function closeMenu() {
@@ -47,16 +46,7 @@ document.addEventListener('DOMContentLoaded', function(){
             closeMenu(); 
         }
     })
-
-
-    // btn to prevent recruto to apply to an offer
-    const btn = document.querySelector('.apply-btn');
-    btn.addEventListener('click',function(){
-        alert('you can\'t apply as you are connected as a recrutor')
-    })
-
-   
-
+    
 
     // AJAX pour changer le contenu de la sidebar des offres
     const offers = document.querySelectorAll(".offers");
@@ -118,38 +108,55 @@ document.addEventListener('DOMContentLoaded', function(){
             .catch(error=>{
                 console.log('Error in request for offerID:' + offer_id + ':' , error );
             })
-
         })
     })
-    
 
-    // modal window
-    const modalWindow = document.querySelector('.modalWindow');
-    const btnModal= document.querySelector('.btn-modal');
-    
-    btnModal.addEventListener('click', function(){
-        openModel();
+
+     // modal for printing message if you apply without connexu=ion
+    const cardmodal = document.querySelector('.cardmodal');
+    const applybtn2 = document.querySelector('.apply-btn2');
+    const removeModal = document.querySelector('.removemodal');
+
+    applybtn2.addEventListener('click', function(){
+        cardmodal.style.display = 'block';
     })
 
-    modalWindow.addEventListener('mouseleave', function(){
-        closeModal();
+    removeModal.addEventListener('click', function(){
+        cardmodal.style.display = 'none'; 
     })
 
+    window.addEventListener('scroll', function(){
+        cardmodal.style.display = 'none';
+    });
 
-    function openModel(){
-        modalWindow.classList.add('modal-visible');
-        body.classList.add('no-scroll');
-    }
 
-    function closeModal(){
-        modalWindow.classList.remove('modal-visible');
-        body.classList.remove('no-scroll');
-    }
+    
 
+    // // modal window
+    // const modalWindow = document.querySelector('.modalWindow');
+    // const btnModal= document.querySelector('.btn-modal');
+    
+    // btnModal.addEventListener('click', function(){
+    //     openModel();
+    // })
+
+    // modalWindow.addEventListener('mouseleave', function(){
+    //     closeModal();
+    // })
+
+
+    // function openModel(){
+    //     modalWindow.classList.add('modal-visible');
+    //     body.classList.add('no-scroll');
+    // }
+
+    // function closeModal(){
+    //     modalWindow.classList.remove('modal-visible');
+    //     body.classList.remove('no-scroll');
+    // }
+
+    
   
-
-
-    
 
    
 
@@ -200,11 +207,6 @@ document.addEventListener('DOMContentLoaded', function(){
     phone_number.addEventListener('change', reset);
 
 
-
-
-    //ajax
-
-    // const offers = document.querySelector(".offers");
 
 
 })
