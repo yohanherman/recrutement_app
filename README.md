@@ -3,7 +3,7 @@ Ce projet est une plateforme de recrutement développée avec Laravel, permettan
 
 
 # Rôles et Fonctionnalités
-1. Job Seeker (Candidat)
+## 1. Job Seeker (Candidat)
 Afficher les offres d'emploi : Les candidats peuvent consulter toutes les offres d'emploi publiées par les recruteurs.
 Postuler aux offres : Les candidats peuvent postuler aux offres d'emploi en téléchargeant leur CV et en ajoutant une lettre de motivation via un formulaire de candidature.
 Page de profil : Chaque candidat dispose d'une page de profil qu'il peut modifier pour mettre à jour ses informations personnelles et professionnelles, ainsi que ses documents (CV, lettre de motivation).
