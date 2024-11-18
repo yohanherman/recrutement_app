@@ -33,6 +33,24 @@ services:
     networks:
       - backend-network
 
+  
+  vite:
+    image: node:18-alpine
+    working_dir: /var/www/recrutement
+    container_name: vite_dev
+    restart: unless-stopped
+    # command: sh -c "npm install && npx vite"
+    command: sh -c "npm install && npm run build"
+    volumes:
+      - ./:/var/www/recrutement
+      - /var/www/recrutement/node_modules
+    ports:
+      - '5173:5173'
+    depends_on:
+      - app
+    networks:
+      - backend-network
+
 
   db:
     image: mysql

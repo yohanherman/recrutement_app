@@ -14,10 +14,12 @@ class ApplyController extends Controller
     public function appytoOfferForm(int $id)
     {
         // if (Auth::check()) {
-            $user = Auth::user();
-            $offer = Offer::findOrFail($id);
+        $user = Auth::user();
+        $offer = Offer::findOrFail($id);
+        // dd($user,$offer);
 
-            return view('pages.applicationForm', compact('user', 'offer'));
+
+        return view('pages.applicationForm', compact('user', 'offer'));
         // }
     }
 
@@ -70,13 +72,17 @@ class ApplyController extends Controller
             'cv' => $path_cv ? str_replace('public/', '', $path_cv) : null,
             'cover_letter' => $path_cover_letter ? str_replace('public/', '', $path_cover_letter) : null,
 
-
         ]);
 
         if ($application) {
-            dd("j'ai bien cree la candidature", $application);
+            return redirect()->route('get.confirmation');
         } else {
             dd("j'ai pas pu creer la candidature");
         }
+    }
+
+    public function confirmapplicationpage()
+    {
+        return view('pages.confirmationapplication');
     }
 }

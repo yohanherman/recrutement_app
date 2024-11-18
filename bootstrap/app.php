@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
 
         $middleware->use([
+            
             // Language::class,
             DisplayByRole::class,
             RecrutorOnly::class,

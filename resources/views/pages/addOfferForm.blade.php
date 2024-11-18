@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('components.header')
+
 {{-- @if(session()->has('success')){
     <p>{{session('success')}}</p>
 }

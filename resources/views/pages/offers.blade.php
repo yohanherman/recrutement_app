@@ -12,7 +12,6 @@
 
 <br>
 
-
 @if (session('message'))
     <div class="alert alert-success">
         {{ session('message') }}
@@ -79,14 +78,14 @@
                                 </div>
                             @else
                                 <div class='m-4'>
-                                    <a class="bg-blue-950 rounded p-2 text-white id_offer hover:bg-blue-800 apply-btn " href="#">
+                                    <a class="bg-blue-950 rounded p-2 text-white id_offer hover:bg-blue-800 apply-btn ">
                                         {{ __('pageOffer.Apply now') }}
                                     </a>
                                 </div>
                             @endif
                         @else
                             <div class='m-4'>
-                                <a class="bg-blue-950 rounded p-2 text-white hover:bg-blue-800 id_offer apply-btn2" href="#">
+                                <a class="bg-blue-950 rounded p-2 text-white hover:bg-blue-800 id_offer apply-btn2">
                                     {{ __('pageOffer.Apply now') }}
                                 </a>
                             </div>
@@ -207,3 +206,7 @@
         @endif
   </div>
 @endsection
+
+@push('scripts')
+  <script src='{{ asset('javascript/offers.js')}}'></script>
+@endpush

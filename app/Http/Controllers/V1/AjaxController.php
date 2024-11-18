@@ -10,7 +10,6 @@ class AjaxController
 {
     public function modifysidebarContentByOfferId(int $id)
     {
-
         $offer = DB::table('offers')
             ->join('employements_types', 'offers.Employement_type_id', 'employements_types.id')
             ->select('offers.*', 'employements_types.*')
@@ -18,7 +17,11 @@ class AjaxController
             ->first();
         // dd($offer);
         if ($offer) {
-            return response()->json(['offer' => $offer]);
+            return response()->json([
+                'offer' => $offer,
+                // 'user' => auth()->user()
+
+            ]);
         }
         return response()->json(['Error' => 'offer not found'], 404);
     }

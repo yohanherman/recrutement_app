@@ -7,20 +7,47 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use function Laravel\Prompts\select;
+
 class recrutorApplicationController extends Controller
 {
     public function displayApplication()
     {
         $userId = Auth::id();
         $applications = DB::table('job_applications')
+            ->join('statuses', 'statuses.id', 'job_applications.status_id')
+            ->join('offers', 'offers.id', 'job_applications.offer_id')
+            ->join('users', 'users.id', 'job_applications.user_id')
             ->where('recrutor_id', $userId)
+            ->select('job_applications.*', 'statuses.*', 'users.*', 'offers.*')
             ->get();
-        // dd($application);
         return view('pages.applications', compact('applications'));
     }
 
-    public function displayApplicationDetails()
+    public function displayApplicationDetails(int $id)
     {
-        return view('pages.detailsApplication');
+        // $userId = Auth::id();
+
+        $application = DB::table('job_applications')
+            ->join('statuses', 'statuses.id', 'job_applications.status_id')
+            ->join('users', 'users.id', 'job_applications.user_id')
+            ->join('offers', 'offers.id', 'job_applications.offer_id')
+            // ->where('recrutor_id', $userId)
+            ->where('offer_id', $id)
+            ->select('job_applications.*', 'statuses.*', 'users.*', 'offers.*')
+            ->first();
+        // dd($application);
+
+        return view('pages.detailsApplication', compact('application'));
+    }
+
+
+    public function changeStatus(int $id)
+    {
+        $application = jobApplications::findOrFail($id);
+        $application->status_id = 2;
+        $application->save();
+
+        return redirect()->back()->with('success', 'You rejected the application');
     }
 }

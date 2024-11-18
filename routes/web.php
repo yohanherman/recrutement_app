@@ -32,7 +32,17 @@ Route::middleware(RecrutorOnly::class)->group(function () {
     Route::post('/add-more-offer-details', [offersController::class, 'postMoreOfferDetails'])->name('post.addMoreOfferDetails');
     Route::get('/application', [recrutorApplicationController::class, 'displayApplication'])->name('recrutor.application');
     Route::get('/application/{id}', [recrutorApplicationController::class, 'displayApplicationDetails'])->name('application.details');
+    Route::post('/change-Status/{id}', [recrutorApplicationController::class, 'changeStatus'])->name('change.status');
 });
+
+
+
+// application route
+Route::middleware(JobSeekerOnly::class)->group(function () {
+    Route::get('/apply/{id}', [ApplyController::class, 'appytoOfferForm'])->name('apply.now');
+    Route::put('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
+});
+
 
 
 
@@ -54,9 +64,4 @@ Route::get('/edit-profile/{id}', [ProfileController::class, 'editProfileForm'])-
 Route::put('/edit-profile', [ProfileController::class, 'editProfileFormPost'])->name('post.profile.edit');
 
 
-
-// application route
-Route::middleware(JobSeekerOnly::class)->group(function () {
-    Route::get('/apply/{id}', [ApplyController::class, 'appytoOfferForm'])->name('apply.now');
-    Route::post('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
-});
+Route::get('/confirmation', [ApplyController::class, 'confirmapplicationpage'])->name('get.confirmation');

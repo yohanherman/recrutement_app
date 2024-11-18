@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\jobApplications;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View()->composer('*', function ($view) {
+            if (Auth ::check()) {
+                $nbrOfApplication = jobApplications::where('recrutor_id', Auth::id())->sum('recrutor_id');
+                $view->with('applicationReceived', $nbrOfApplication);
+            }
+        });
     }
 }

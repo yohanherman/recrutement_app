@@ -1,52 +1,58 @@
-
 .sidebar {
-    position: sticky; 
-    top: 0; 
+    position: sticky;
+    top: 0;
 }
 
-.sidebar_menu{
+.sidebar_menu {
     margin-right: -100%;
     transition: all 0.2s ease-out;
     /* z-index: 100; */
 }
 
-.visible_menu{
+.visible_menu {
     margin-right: 0;
     transition: all 0.2s ease-out;
-
 }
 
-
-.overlay{
-  background-color: rgba(0, 0, 0, 0.4);  
-  display: none;
+.overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
 }
 
-.visible_overlay{
+.visible_overlay {
     display: block;
 }
 
 body.no-scroll {
     overflow: hidden;
-  }
-
-.searchbar{
-    /* opacity: 0.5; */
-    
 }
 
+.searchbar {
+    /* opacity: 0.5; */
+}
 
 /* table candidature */
-td,th{
-    padding: 10px; 
-    border: 1px solid #ccc; 
-    text-align: left; 
+td,
+th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
 }
-
 
 /* modal window */
 
-.modal-visible{
+.modal-visible {
     display: block;
     /* transition: all 5s ease-out; */
+}
+
+.publish_offer{
+  transition: all 0.2s ease-out;
+}
+
+.publish_offer:hover {
+    /* transition: all 0.2s ease-out; */
+    background-color:blue ;
+    border-radius: 5px;
+    padding: 5px;
 }
