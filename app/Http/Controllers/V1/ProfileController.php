@@ -15,7 +15,7 @@ class ProfileController extends Controller
         if ($user) {
             return view('pages.userProfile', compact('user'));
         }
-        return view('pages.404error');
+        return view('pages.401error');
     }
 
     public function editProfileForm(int $id)

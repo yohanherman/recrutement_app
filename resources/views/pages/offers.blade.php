@@ -40,7 +40,7 @@
                         @endif
                     </div>
 
-                    <a href="#">{{__('pageOffer.Simplified application')}}</a>
+                    <a href="{{route('apply.now', $item->id)}}">{{__('pageOffer.Simplified application')}}</a>
                     <p class="my-2"> {{__('pageOffer.Announce published')}} {{$item->published_at}}</p>
                 </div>
             @endforeach
@@ -48,7 +48,6 @@
         </div>
         
 {{-- sidebar offer page --}}
-
         <div class="sidebar w-[50rem] h-screen hidden m-3 md:block ">
 
                 <div class='content border-1'>
@@ -57,7 +56,6 @@
                                 <h4 class="font-bold text-[20px] py-1 title_offer">{{$offerTopOfCollection->Title_offer}} - (F/H)</h4>
                                 <p class="underline py-1 company_name">{{$offerTopOfCollection->Company_name}}</p>
                                 <p class="py-1 location">{{$offerTopOfCollection->Location}}</p>
-                                
                                 
                                 @if($offerTopOfCollection->Employement_type_id == 1)
                                     <p class='bg-gray-200 inline-block p-1 rounded contract'>CDI</p>

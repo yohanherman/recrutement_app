@@ -113,3 +113,7 @@
     </div>
 </body>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('javascript/register.js')}}"></script>
+@endpush

@@ -23,7 +23,9 @@ class AppServiceProvider extends ServiceProvider
     {
         View()->composer('*', function ($view) {
             if (Auth ::check()) {
-                $nbrOfApplication = jobApplications::where('recrutor_id', Auth::id())->sum('recrutor_id');
+                $nbrOfApplication = jobApplications::where('recrutor_id', Auth::id())
+                ->where('status_id', 1)
+                ->sum('recrutor_id');
                 $view->with('applicationReceived', $nbrOfApplication);
             }
         });

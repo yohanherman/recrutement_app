@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\ApplicationFollowUpController;
 use App\Http\Controllers\v1\UnauthorizedController;
 use App\Http\Controllers\v1\ApplyController;
 use App\Http\Controllers\v1\AjaxController;
@@ -32,17 +33,17 @@ Route::middleware(RecrutorOnly::class)->group(function () {
     Route::post('/add-more-offer-details', [offersController::class, 'postMoreOfferDetails'])->name('post.addMoreOfferDetails');
     Route::get('/application', [recrutorApplicationController::class, 'displayApplication'])->name('recrutor.application');
     Route::get('/application/{id}', [recrutorApplicationController::class, 'displayApplicationDetails'])->name('application.details');
-    Route::post('/change-Status/{id}', [recrutorApplicationController::class, 'changeStatus'])->name('change.status');
+    Route::put('/change-Status/{id}', [recrutorApplicationController::class, 'changeStatus'])->name('change.status');
 });
-
 
 
 // application route
 Route::middleware(JobSeekerOnly::class)->group(function () {
     Route::get('/apply/{id}', [ApplyController::class, 'appytoOfferForm'])->name('apply.now');
-    Route::put('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
+    Route::post('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
+    Route::get('/application-follow-up', [ApplicationFollowUpController::class, 'getMyApplication'])->name('application.followup');
+    // Route::get('')
 });
-
 
 
 
@@ -54,8 +55,6 @@ Route::post('/register', [AuthController::class, 'postRegister'])->name('post.re
 
 route::get('/nonauth', [UnauthorizedController::class, 'unauthorized'])->name('unauthorized.error');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-
 
 
 // profile routes

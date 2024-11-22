@@ -5,7 +5,6 @@
 @section('content')
 @include('components.header')
 
-
 <div>
     <div class="my-5 mx-2">
         <p>Recrutor: {{ Auth::user()->name}}</p>
@@ -14,6 +13,7 @@
 
     @if($applications && !$applications->isEmpty())
 
+    <div class="overflow-x-auto">
       <table class="">
           <caption class="my-5 text-[20px] font-bold">
             Applications
@@ -67,7 +67,6 @@
               @elseif($application->status_id ==2)
                   <td class="bg-red-500 rounded">REJECTED</td>
               @endif
-              {{-- <td>pending</td> --}}
               <td>
                   <a class=' bg-blue-700 text-white p-1 rounded' href="{{route('application.details',$application->offer_id)}}">See</a>
               </td>
@@ -84,6 +83,7 @@
 
     
       </table>
+    </div>
     @else
 
     <p class="text-center m-5">No application Received</p>

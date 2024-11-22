@@ -13,14 +13,11 @@ class ApplyController extends Controller
 {
     public function appytoOfferForm(int $id)
     {
-        // if (Auth::check()) {
         $user = Auth::user();
         $offer = Offer::findOrFail($id);
         // dd($user,$offer);
 
-
         return view('pages.applicationForm', compact('user', 'offer'));
-        // }
     }
 
     public function applyToOffer(Request $request)
