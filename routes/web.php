@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\searchController;
 use App\Http\Controllers\v1\ApplicationFollowUpController;
 use App\Http\Controllers\v1\UnauthorizedController;
 use App\Http\Controllers\v1\ApplyController;
@@ -42,7 +43,6 @@ Route::middleware(JobSeekerOnly::class)->group(function () {
     Route::get('/apply/{id}', [ApplyController::class, 'appytoOfferForm'])->name('apply.now');
     Route::post('/apply', [ApplyController::class, 'applyToOffer'])->name('application.post');
     Route::get('/application-follow-up', [ApplicationFollowUpController::class, 'getMyApplication'])->name('application.followup');
-    // Route::get('')
 });
 
 
@@ -64,3 +64,8 @@ Route::put('/edit-profile', [ProfileController::class, 'editProfileFormPost'])->
 
 
 Route::get('/confirmation', [ApplyController::class, 'confirmapplicationpage'])->name('get.confirmation');
+
+
+// Searchjob routes
+
+Route::post('/search', [searchController::class, 'searchJob'])->name('search.job');

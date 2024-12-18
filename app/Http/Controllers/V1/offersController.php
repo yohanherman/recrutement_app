@@ -20,10 +20,6 @@ class offersController extends Controller
             $offer->published_at = $createdAt->diffForHumans();
             return $offer;
         });
-        // dd($offers);
-        // DB::enableQueryLog();
-        // $offers = Offer::with('responsabilities')->inRandomOrder()->get();
-        // dd(DB::getQueryLog());
 
         $offerTopOfCollection = $offers->first();
         return view('pages.offers', compact('offers', 'offerTopOfCollection'));

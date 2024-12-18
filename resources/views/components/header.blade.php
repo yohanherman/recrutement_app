@@ -88,7 +88,9 @@
 
     <nav class="navbar h-16 w-full flex justify-between items-center  bg-blue-950 ">
         <div class="flex justify-center items-center  text-white">
-            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
+            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">
+                <a href="{{ route('home.offers')}}">LOGO</a>
+            </div>
         </div>
         <ul class="flex space-x-5 mx-5 text-[15px] text-white ">
             <li><i class="fa-solid fa-message"></i></li>
@@ -152,17 +154,13 @@
 
     <nav class="navbar h-16 w-full flex justify-between items-center bg-blue-950 ">
         <div class="flex justify-center items-center  text-white">
-            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">LOGO</div>
-            <a class='hidden md:flex text-[15px] ms-5' href="{{route('home.offers')}}">Home</a>
+            <div class="mx-3 font-bold text-[20px] mb-2 md:text-[27px]">
+                <a href="{{ route('home.offers')}}">LOGO</a>
+            </div>
         </div>
         <ul class="flex space-x-5 mx-5 text-[15px] text-white ">
-            <li>message</li>
-            <li>notifications</li>
 
             {{-- debut drop down --}}
-
-            {{-- <li class="hidden md:block"><a href="{{route('get.profile')}}"><i class="fa-solid fa-user"></a></i></li> --}}
-
             <div class="hs-dropdown [--strategy:absolute] [--flip:false] hs-dropdown-example relative hidden md:block">
                 <button id="hs-dropdown-example" type="button" class="hs-dropdown-toggle p-1 inline-flex items-center gap-x-2 text-sm font-medium  disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 " aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
                     <i class="fa-solid fa-user"></i>
@@ -179,10 +177,7 @@
               </div>
             {{-- fin drop down --}}
 
-
-
             <li class="burger md:hidden"><i class="fa-solid fa-bars"></i></li>
-            {{-- <div class="hidden md:block"> | publish an offer</div> --}}
         </ul>
     </nav>
 

@@ -6,11 +6,22 @@
 
 @include('components.header')
 
-@include('components.searchbar')
+{{-- @include('components.searchbar') --}}
 
 <br>
-
 <br>
+
+<hr>
+<br>
+<div class="m-5">Job {{$position}} ({{$location}})</div>
+
+@if($resultsCount)
+    <p class="m-5">Nombre de résultats : {{ $resultsCount }}</p>
+@else
+@endif
+
+
+
 
 @if (session('message'))
     <div class="alert alert-success">
@@ -20,9 +31,9 @@
 
 
     <div class="flex justify-center">
-        @if(!$offers->isEmpty())
+        @if(!$results->isEmpty())
         <div class="">
-            @foreach ($offers as $item)
+            @foreach ($results as $item)
                 <div class="border-2 rounded p-2 m-3 offers" data-offer-id='{{$item->id}}'>
                     <h4 class="font-bold text-[20px] my-2">{{$item->Title_offer}} - (F/H) </h3>
                     <p class="uppercase">{{$item->Company_name}}</p>
@@ -199,7 +210,7 @@
         </div>
         @else
             <div class="my-5">
-                <p>no offer published on the site</p>
+                <p>No offer found for your search</p>
             </div>
         @endif
   </div>
